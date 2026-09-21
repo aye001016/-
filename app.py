@@ -44,7 +44,7 @@ if "result" not in st.session_state:
     st.session_state.result = None
 
 st.markdown('<p class="title">🍽️ 승은이와 아연이의 오늘 뭐 먹지?</p>', unsafe_allow_html=True)
-st.markdown('<p class="subtitle">결정은 랜덤, 맛있게 먹자~?</p>', unsafe_allow_html=True)
+st.markdown('<p class="subtitle">결정은 랜덤 맛있게 먹자~?</p>', unsafe_allow_html=True)
 
 categories = list(st.session_state.menus)
 selected = st.multiselect(
@@ -58,7 +58,7 @@ col1, col2 = st.columns(2)
 with col1:
     no_repeat = st.checkbox("최근 메뉴 제외", value=True, help="최근 10회에 뽑힌 메뉴를 우선 제외합니다.")
 with col2:
-    roll_seconds = st.select_slider("두구두구두구두구", options=[0, 1, 2], value=1, format_func=lambda x: f"{x}초")
+    roll_seconds = st.select_slider("쪼는맛 몇 초?", options=[0, 1, 2], value=1, format_func=lambda x: f"{x}초")
 
 choices = [(cat, menu) for cat in selected for menu in st.session_state.menus.get(cat, [])]
 if no_repeat:
