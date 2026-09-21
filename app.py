@@ -4,7 +4,7 @@ import time
 import streamlit as st
 
 
-st.set_page_config(page_title="오늘 뭐 먹지?", page_icon="🍽️", layout="centered")
+st.set_page_config(page_title="승은이와 아연이의 오늘 뭐 먹지?", page_icon="🍽️", layout="centered")
 
 DEFAULT_MENUS = {
     "한식": ["김치찌개", "된장찌개", "순두부찌개", "부대찌개", "제육볶음", "불고기", "삼겹살", "갈비", "닭갈비", "찜닭", "닭볶음탕", "감자탕", "뼈해장국", "설렁탕", "곰탕", "육개장", "국밥", "비빔밥", "쌈밥", "백반", "보쌈", "족발", "낙지볶음", "오징어볶음", "갈치조림", "고등어구이", "간장게장", "아귀찜", "해물찜", "칼국수", "수제비", "냉면", "막국수", "김치볶음밥", "주꾸미볶음", "오리구이"],
@@ -43,8 +43,8 @@ if "history" not in st.session_state:
 if "result" not in st.session_state:
     st.session_state.result = None
 
-st.markdown('<p class="title">🍽️ 오늘 뭐 먹지?</p>', unsafe_allow_html=True)
-st.markdown('<p class="subtitle">결정은 랜덤, 맛있게 먹는 건 진심!</p>', unsafe_allow_html=True)
+st.markdown('<p class="title">🍽️ 승은이와 아연이의 오늘 뭐 먹지?</p>', unsafe_allow_html=True)
+st.markdown('<p class="subtitle">결정은 랜덤, 맛있게 먹자~?</p>', unsafe_allow_html=True)
 
 categories = list(st.session_state.menus)
 selected = st.multiselect(
@@ -58,7 +58,7 @@ col1, col2 = st.columns(2)
 with col1:
     no_repeat = st.checkbox("최근 메뉴 제외", value=True, help="최근 10회에 뽑힌 메뉴를 우선 제외합니다.")
 with col2:
-    roll_seconds = st.select_slider("두근두근 시간", options=[0, 1, 2], value=1, format_func=lambda x: f"{x}초")
+    roll_seconds = st.select_slider("두구두구두구두구", options=[0, 1, 2], value=1, format_func=lambda x: f"{x}초")
 
 choices = [(cat, menu) for cat in selected for menu in st.session_state.menus.get(cat, [])]
 if no_repeat:
@@ -93,7 +93,7 @@ if st.session_state.result:
         f'<div class="result"><div class="result-category">오늘의 선택 · {category}</div><div class="result-menu">{menu}</div></div>',
         unsafe_allow_html=True,
     )
-    st.caption("마음에 안 들면 한 번만 더… 정말 한 번만! 😎")
+    st.caption("마음에 안 들어? 진짜 진짜 찐찐막 🤤")
 
 with st.expander("✏️ 메뉴 추가·삭제"):
     add_tab, delete_tab = st.tabs(["메뉴 추가", "메뉴 삭제"])
